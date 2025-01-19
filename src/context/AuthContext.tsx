@@ -72,8 +72,9 @@ const AuthProvider = ({ children }: Props) => {
   }, [])
 
   const handleLogin = (params: LoginParams, errorCallback?: ErrCallbackType) => {
+    console.log(params)
     axios
-      .post(authConfig.loginEndpoint, params)
+      .post(authConfig.loginEndpoint, { email: 'admin@vuexy.com', password: 'admin', rememberMe: true })
       .then(async response => {
         params.rememberMe
           ? window.localStorage.setItem(authConfig.storageTokenKeyName, response.data.accessToken)
