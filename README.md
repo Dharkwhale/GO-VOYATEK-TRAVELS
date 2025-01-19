@@ -90,3 +90,5 @@ While building this website i consumed the booking API from RapidAPI.com and i u
 
 ![alt text](image-1.png)
 
+![alt text](image-2.png)
+
