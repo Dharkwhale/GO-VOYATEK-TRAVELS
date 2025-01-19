@@ -6,12 +6,12 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Activities',
       icon: 'tabler:road',
-      path: '/activities'
+      path: '/Activities'
     },
     {
       title: 'Hotels',
       icon: 'tabler:building-skyscraper',
-      path: '/hotels'
+      path: '/Hotels'
     },
     {
       title: 'Flights',
@@ -21,27 +21,27 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Study',
       icon: 'tabler:school',
-      path: '/study'
+      path: '/Study'
     },
     {
       title: 'Visa',
       icon: 'tabler:id',
-      path: 'visa'
+      path: 'Visa'
     },
     {
       title: 'Immigration',
       icon: 'tabler:luggage',
-      path: '/immigration'
+      path: '/Immigration'
     },
     {
       title: 'Medical',
       icon: 'tabler:first-aid-kit',
-      path: '/medical'
+      path: '/Medical'
     },
     {
       title: 'Vacation Packages',
       icon: 'tabler:box',
-      path: '/vacation-packages'
+      path: '/Vacation-Packages'
     }
   ]
 }
