@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react'
 
 // ** MUI Imports
+import AccountCard from './AccountCard'
 import List from '@mui/material/List'
 import Box, { BoxProps } from '@mui/material/Box'
 import { createTheme, responsiveFontSizes, styled, ThemeProvider } from '@mui/material/styles'
@@ -80,6 +81,7 @@ const Navigation = (props: Props) => {
   } = props
 
   // ** States
+  const [expanded, setExpanded] = useState(false)
   const [navHover, setNavHover] = useState<boolean>(false)
   const [groupActive, setGroupActive] = useState<string[]>([])
   const [currentActiveGroup, setCurrentActiveGroup] = useState<string[]>([])
@@ -145,6 +147,7 @@ const Navigation = (props: Props) => {
     <ThemeProvider theme={darkTheme}>
       <Drawer {...props} navHover={navHover} setNavHover={setNavHover} navigationBorderWidth={navigationBorderWidth}>
         <VerticalNavHeader {...props} navHover={navHover} />
+
         {beforeNavMenuContent && beforeVerticalNavMenuContentPosition === 'fixed'
           ? beforeNavMenuContent(navMenuContentProps)
           : null}
@@ -180,6 +183,9 @@ const Navigation = (props: Props) => {
                   setCurrentActiveGroup={setCurrentActiveGroup}
                   {...props}
                 />
+                <Box sx={{ p: 4 }}>
+                  <AccountCard expanded={expanded} onClick={() => setExpanded(!expanded)} />
+                </Box>
               </List>
             )}
             {afterNavMenuContent && afterVerticalNavMenuContentPosition === 'static'

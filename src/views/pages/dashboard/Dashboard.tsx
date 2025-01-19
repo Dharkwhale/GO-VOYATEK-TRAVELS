@@ -1,9 +1,10 @@
 import React from 'react'
 import { Box, Typography, Button, Card, CardContent, IconButton, Avatar, Grid } from '@mui/material'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import LanguageIcon from '@mui/icons-material/Language'
+
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
+// import LanguageIcon from '@mui/icons-material/Language'
 import { tripData } from './mockData'
+import { Settings } from '@mui/icons-material'
 
 export default function Dashboard() {
   const styles = {
@@ -45,7 +46,7 @@ export default function Dashboard() {
     headerActions: {
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'center',
+      alignItems: 'space-between',
       marginBottom: 2
     }
   }
@@ -57,10 +58,35 @@ export default function Dashboard() {
 
       {/* Header Actions */}
       <Box sx={styles.headerActions}>
-        <IconButton>
-          <ArrowBackIcon />
-        </IconButton>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        {/* Trip Info */}
+        <Box sx={{ marginBottom: 4 }}>
+          <Box sx={styles.dateRange}>
+            <Typography variant='body2' color='#7A4504' sx={{ backgroundColor: '#FEF4E6', p: 2 }}>
+              {tripData.dateRange.start} → {tripData.dateRange.end}
+            </Typography>
+          </Box>
+
+          <Typography variant='h6' sx={{ fontWeight: 'bold', marginBottom: 1, color: '#000000' }}>
+            {tripData.title}
+          </Typography>
+
+          <Box sx={styles.location}>
+            <Typography variant='body2'>
+              {tripData.location} • {tripData.tripType}
+            </Typography>
+          </Box>
+        </Box>
+
+        <Box
+          sx={{
+            bgcolor: '#F0F7FF',
+            borderRadius: 2,
+            height: 80,
+            mb: 4
+          }}
+        />
+
+        {/* <Box sx={{ gap: 1 }}>
           <Avatar sx={{ width: 30, height: 30 }} />
           <IconButton>
             <LanguageIcon />
@@ -68,25 +94,43 @@ export default function Dashboard() {
           <IconButton>
             <MoreHorizIcon />
           </IconButton>
-        </Box>
-      </Box>
+        </Box> */}
 
-      {/* Trip Info */}
-      <Box sx={{ marginBottom: 4 }}>
-        <Box sx={styles.dateRange}>
-          <Typography variant='body2'>
-            {tripData.dateRange.start} → {tripData.dateRange.end}
-          </Typography>
-        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 2,
+            position: 'relative'
+          }}
+        >
+          <Avatar alt='John Doe' src='/images/avatars/samal.svg' sx={{ width: '2.5rem', height: '2.5rem' }} />
 
-        <Typography variant='h5' sx={{ fontWeight: 'bold', marginBottom: 1 }}>
-          {tripData.title}
-        </Typography>
+          {/* Line connector */}
+          <Box
+            sx={{
+              height: 2,
+              width: 40,
+              bgcolor: '#E8E9FF',
+              position: 'relative',
+              top: 0
+            }}
+          />
 
-        <Box sx={styles.location}>
-          <Typography variant='body2'>
-            {tripData.location} • {tripData.tripType}
-          </Typography>
+          {/* Settings button */}
+          <IconButton
+            sx={{
+              bgcolor: '#F8F9FF',
+              width: 40,
+              height: 40,
+              '&:hover': {
+                bgcolor: '#E8E9FF'
+              }
+            }}
+          >
+            <Settings sx={{ color: '#6B7280', fontSize: 20 }} />
+          </IconButton>
         </Box>
       </Box>
 
@@ -98,22 +142,48 @@ export default function Dashboard() {
               sx={{
                 ...styles.card,
                 bgcolor: section.backgroundColor,
-                color: section.backgroundColor === '#f5f5f5' ? 'black' : 'white'
+                color: section.backgroundColor === '#E7F0FF' ? 'black' : 'white'
               }}
             >
               <CardContent sx={styles.cardContent}>
-                <Typography variant='h6' sx={{ marginBottom: 2 }}>
+                <Typography
+                  variant='h6'
+                  sx={{
+                    marginBottom: 2,
+                    color: `${section.backgroundColor === '#E7F0FF' ? '#000000' : '#ffffff'}`,
+                    fontWeight: 700
+                  }}
+                >
                   {section.title}
                 </Typography>
-                <Typography variant='body2'>{section.description}</Typography>
+                <Typography
+                  variant='body2'
+                  sx={{
+                    marginBottom: 4,
+                    color: `${section.backgroundColor === '#E7F0FF' ? '#000000' : '#ffffff'}`
+                  }}
+                >
+                  {section.description}
+                </Typography>
                 <Button
                   variant='contained'
                   sx={{
                     ...styles.actionButton,
-                    bgcolor: section.backgroundColor === '#f5f5f5' ? '#0066ff' : 'white',
-                    color: section.backgroundColor === '#f5f5f5' ? 'white' : 'black',
+                    bgcolor:
+                      section.backgroundColor === '#E7F0FF'
+                        ? '#0066ff'
+                        : section.backgroundColor === '#000031'
+                        ? '#0066ff'
+                        : 'white',
+
+                    color:
+                      section.backgroundColor === '#000031'
+                        ? 'white'
+                        : section.backgroundColor === '#E7F0FF'
+                        ? 'white'
+                        : '#0D6EFD',
                     '&:hover': {
-                      bgcolor: section.backgroundColor === '#f5f5f5' ? '#0052cc' : '#f5f5f5'
+                      bgcolor: section.backgroundColor === '#E7F0FF' ? '#0052cc' : '#E7F0FF'
                     }
                   }}
                 >

@@ -26,7 +26,7 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Visa',
       icon: 'tabler:id',
-      path: 'Visa'
+      path: '/Visa'
     },
     {
       title: 'Immigration',

@@ -29,14 +29,14 @@ export interface ApiResponse<T> {
 // Note: FlightDetails interface is not used in the current implementation
 // but kept for potential future use
 export interface FlightDetails {
-  airline: string
-  flightNumber: string
-  departureTime: string
-  arrivalTime: string
-  duration: string
-  departureCode: string
-  arrivalCode: string
-  date: string
-  price: number
-  facilities: string[]
+  airline?: string
+  flightNumber?: string
+  departureTime?: string
+  arrivalTime?: string
+  duration?: string
+  departureCode?: string
+  arrivalCode?: string
+  date?: string
+  price?: number
+  facilities?: string[]
 }

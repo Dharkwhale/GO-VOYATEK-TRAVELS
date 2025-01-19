@@ -25,12 +25,12 @@ export interface ApiResponse<T> {
 export interface ActivityDetails {
   id: string
   title: string
-  description: string
-  rating: number
-  reviews: number
-  duration: string
-  time: string
-  date: string
-  included: string[]
+  description?: string
+  rating?: number
+  reviews?: number
+  duration?: string
+  time?: string
+  date?: string
+  included?: string[]
   day?: number
 }
