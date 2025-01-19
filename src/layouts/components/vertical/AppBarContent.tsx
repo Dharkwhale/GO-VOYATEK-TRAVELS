@@ -53,7 +53,7 @@ const AppBarContent = (props: Props) => {
         cursor: 'pointer'
       }}
     >
-      <Image src={item.icon || '/placeholder.svg'} alt='logo' width={24} />
+      <Image src={item.icon || '/placeholder.svg'} alt='logo' width={24} height={24} />
       <Typography
         variant='caption'
         sx={{

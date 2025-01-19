@@ -43,9 +43,9 @@ interface Props {
 }
 
 // ** Styled Components
-const MenuNavLink = styled(ListItemButton)<
-  ListItemButtonProps & { component?: ElementType; href: string; target?: '_blank' | undefined }
->(({ theme }) => ({
+const MenuNavLink = styled(ListItemButton, {
+  shouldForwardProp: prop => prop !== 'component'
+})<ListItemButtonProps & { component?: ElementType; href: string; target?: '_blank' | undefined }>(({ theme }) => ({
   width: '100%',
   marginLeft: theme.spacing(3.5),
   marginRight: theme.spacing(3.5),
@@ -96,12 +96,8 @@ const VerticalNavLink = ({
   toggleNavVisibility,
   navigationBorderWidth
 }: Props) => {
-  // ** Hooks
   const router = useRouter()
-
-  // ** Vars
   const { navCollapsed } = settings
-
   const icon = parent && !item.icon ? themeConfig.navSubItemIcon : item.icon
 
   const isNavLinkActive = () => {
@@ -114,12 +110,7 @@ const VerticalNavLink = ({
 
   return (
     <CanViewNavLink navLink={item}>
-      <ListItem
-        disablePadding
-        className='nav-link'
-        disabled={item.disabled || false}
-        sx={{ mt: 1, px: '0 !important' }}
-      >
+      <ListItem disablePadding className='nav-link' sx={{ mt: 1, px: '0 !important' }}>
         <MenuNavLink
           component={Link}
           {...(item.disabled && { tabIndex: -1 })}
@@ -148,7 +139,7 @@ const VerticalNavLink = ({
             sx={{
               transition: 'margin .25s ease-in-out',
               ...(navCollapsed && !navHover ? { mr: 0 } : { mr: 2 }),
-              ...(parent ? { ml: 1.5, mr: 3.5 } : {}), // This line should be after (navCollapsed && !navHover) condition for proper styling
+              ...(parent ? { ml: 1.5, mr: 3.5 } : {}),
               '& svg': {
                 fontSize: '0.625rem',
                 ...(!parent ? { fontSize: '1.375rem' } : {}),

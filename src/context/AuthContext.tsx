@@ -82,7 +82,7 @@ const AuthProvider = ({ children }: Props) => {
         setUser({ ...response.data.userData })
         params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
 
-        router.push('/Activities')
+        router.push('/activities')
       })
 
       .catch(err => {

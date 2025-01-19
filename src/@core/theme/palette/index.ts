@@ -1,12 +1,12 @@
 // ** Type Imports
-import { Palette } from '@mui/material'
+import { Palette, PaletteOptions } from '@mui/material'
 import { Skin } from 'src/@core/layouts/types'
 
-const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
+const DefaultPalette = (mode: Palette['mode'], skin: Skin): PaletteOptions => {
   // ** Vars
   const whiteColor = '#FFF'
-  const lightColor = '47, 43, 61'
-  const darkColor = '208, 212, 241'
+  const lightColor = 'rgb(47, 43, 61)' // Use rgb format
+  const darkColor = 'rgb(208, 212, 241)' // Use rgb format
   const darkPaperBgColor = '#2F3349'
   const mainColor = mode === 'light' ? lightColor : darkColor
 
@@ -27,14 +27,14 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       light: lightColor,
       lightPaperBg: whiteColor,
       darkPaperBg: darkPaperBgColor,
-      bodyBg: mode === 'light' ? '#F8F7FA' : '#25293C', // Same as palette.background.default but doesn't consider bordered skin
+      bodyBg: mode === 'light' ? '#F8F7FA' : '#25293C',
       trackBg: mode === 'light' ? '#F1F0F2' : '#363B54',
       avatarBg: mode === 'light' ? '#DBDADE' : '#4A5072',
       tableHeaderBg: mode === 'light' ? '#F6F6F7' : '#4A5072'
     },
     mode: mode,
     common: {
-      black: '#000',
+      black: '#949699',
       white: whiteColor
     },
     primary: {
@@ -90,25 +90,33 @@ const DefaultPalette = (mode: Palette['mode'], skin: Skin): Palette => {
       A700: '#616161'
     },
     text: {
-      primary: `rgba(${mainColor}, 0.78)`,
-      secondary: `rgba(${mainColor}, 0.68)`,
-      disabled: `rgba(${mainColor}, 0.42)`
+      primary: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.78)`,
+      secondary: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.68)`,
+      disabled: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.42)`
     },
-    divider: `rgba(${mainColor}, 0.16)`,
+    divider: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.16)`,
     background: {
       paper: mode === 'light' ? whiteColor : darkPaperBgColor,
       default: defaultBgColor()
     },
     action: {
-      active: `rgba(${mainColor}, 0.54)`,
-      hover: `rgba(${mainColor}, 0.04)`,
-      selected: `rgba(${mainColor}, 0.06)`,
+      active: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.54)`,
+      hover: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.04)`,
+      selected: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.06)`,
       selectedOpacity: 0.06,
-      disabled: `rgba(${mainColor}, 0.26)`,
-      disabledBackground: `rgba(${mainColor}, 0.12)`,
-      focus: `rgba(${mainColor}, 0.12)`
-    }
-  } as Palette
+      disabled: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.26)`,
+      disabledBackground: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.12)`,
+      focus: `rgba(${mode === 'light' ? '47, 43, 61' : '208, 212, 241'}, 0.12)`,
+      hoverOpacity: 0.04,
+      disabledOpacity: 0.26,
+      focusOpacity: 0.12,
+      activatedOpacity: 0.12
+    },
+
+    // Add these properties to resolve the TypeScript error
+    contrastThreshold: 3,
+    tonalOffset: 0.2
+  }
 }
 
 export default DefaultPalette

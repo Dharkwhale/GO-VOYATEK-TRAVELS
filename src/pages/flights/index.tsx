@@ -1,5 +1,7 @@
-const Flights = () => {
-    return <>flights</>
-  }
-  
-  export default Flights
+import Flights from 'src/views/pages/flights/Flights'
+
+const Flight = () => {
+  return <Flights />
+}
+
+export default Flight

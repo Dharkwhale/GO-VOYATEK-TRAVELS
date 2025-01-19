@@ -6,7 +6,7 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Activities',
       icon: 'tabler:road',
-      path: '/Activities'
+      path: '/activities'
     },
     {
       title: 'Hotels',

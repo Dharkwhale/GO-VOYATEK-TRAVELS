@@ -16,7 +16,8 @@ import NProgress from 'nprogress'
 
 // ** Emotion Imports
 import { CacheProvider } from '@emotion/react'
-import type { EmotionCache } from '@emotion/cache'
+import type { EmotionCache as EmotionCacheReact } from '@emotion/react'
+import type { EmotionCache as EmotionCacheUtils } from '@emotion/utils'
 
 // ** Config Imports
 import 'src/configs/i18n'
@@ -66,7 +67,7 @@ import '../../styles/globals.css'
 // ** Extend App Props with Emotion
 type ExtendedAppProps = AppProps & {
   Component: NextPage
-  emotionCache: EmotionCache
+  emotionCache: EmotionCacheUtils
 }
 
 type GuardProps = {
@@ -119,7 +120,7 @@ const App = (props: ExtendedAppProps) => {
 
   return (
     <Provider store={store}>
-      <CacheProvider value={emotionCache}>
+      <CacheProvider value={emotionCache as EmotionCacheReact}>
         <Head>
           <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
           <meta
