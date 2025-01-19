@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Box, { BoxProps } from '@mui/material/Box'
 import { styled } from '@mui/material/styles'
+import { TextField, InputAdornment } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search'
 
 // ** Type Import
 import { LayoutProps } from 'src/@core/layouts/types'
@@ -69,7 +71,35 @@ const VerticalNavHeader = (props: Props) => {
       ) : (
         <LinkStyled href='/'>
           <Image src='/logo.svg' alt='logo' width={50} height={40} />
-       
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: '2vh',
+              backgroundColor: '#f9f9f9',
+              ml: 2,
+              py: 3
+            }}
+          >
+            <TextField
+              variant='outlined'
+              placeholder='Search...'
+              fullWidth
+              sx={{
+                maxWidth: 400,
+                backgroundColor: 'white',
+                borderRadius: 1
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position='start'>
+                    <SearchIcon />
+                  </InputAdornment>
+                )
+              }}
+            />
+          </Box>
         </LinkStyled>
       )}
     </MenuHeaderWrapper>
