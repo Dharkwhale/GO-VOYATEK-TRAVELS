@@ -1,4 +1,4 @@
-Project Name
+Project Name: GO-VOYATEK-TRAVELS
 This is a Next.js frontend project using TypeScript and integrating with RapidAPI. It follows a structured approach to organization and utilizes various Next.js features and best practices.
 
 Table of Contents
@@ -63,9 +63,10 @@ Iconify for icon system
 RapidAPI for external data integration
 
 Setup Guide
-Clone the repository:
 
-git clone https://github.com/yourusername/project-name.git
+
+github repository https://github.com/Dharkwhale/GO-VOYATEK-TRAVELS.git
+hosting link.. https://go-voyatek-travels.vercel.app/
 
 
 Install dependencies:
@@ -83,4 +84,9 @@ $npm run build
 
 
 Contributing Guide
-While building this website i consumed the booking API from RapidAPI.com and i used mockAPI to build the login page
+While building this website i consumed the booking API from RapidAPI.com and i used mockAPI to build the login page that leads to the landing page
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
