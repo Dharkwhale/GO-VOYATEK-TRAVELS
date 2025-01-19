@@ -3,15 +3,15 @@ import { Card, CardContent, Typography, Box, Button, IconButton, Chip, Stack } f
 import { Close as CloseIcon, FlightTakeoff, LuggageOutlined, Tv, Restaurant, Usb } from '@mui/icons-material'
 
 interface FlightCardProps {
-  airline: string
-  flightNumber: string
-  departureTime: string
-  arrivalTime: string
-  duration: string
-  departureCode: string
-  arrivalCode: string
-  date: string
-  price: number
+  airline?: string
+  flightNumber?: string
+  departureTime?: string
+  arrivalTime?: string
+  duration?: string
+  departureCode?: string
+  arrivalCode?: string
+  date?: string
+  price?: number
   onClose?: () => void
 }
 
