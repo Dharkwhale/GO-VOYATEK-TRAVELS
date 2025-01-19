@@ -69,6 +69,7 @@ const VerticalNavHeader = (props: Props) => {
       ) : (
         <LinkStyled href='/'>
           <Image src='/logo.svg' alt='logo' width={50} height={40} />
+       
         </LinkStyled>
       )}
     </MenuHeaderWrapper>
