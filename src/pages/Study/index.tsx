@@ -1,5 +1,11 @@
+import Activities from 'src/views/pages/activities/Activities'
+
 const Study = () => {
-    return <>study</>
-  }
-  
-  export default Study
+  return (
+    <>
+      <Activities />
+    </>
+  )
+}
+
+export default Study

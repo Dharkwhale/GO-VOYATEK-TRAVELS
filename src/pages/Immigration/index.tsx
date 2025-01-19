@@ -1,5 +1,7 @@
+import Flights from 'src/views/pages/flights/Flights'
+
 const Immigration = () => {
-    return <>immigration</>
-  }
-  
-  export default Immigration
+  return <Flights />
+}
+
+export default Immigration

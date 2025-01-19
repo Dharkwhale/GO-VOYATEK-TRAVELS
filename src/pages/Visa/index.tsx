@@ -1,5 +1,7 @@
+import Flights from 'src/views/pages/flights/Flights'
+
 const Visa = () => {
-    return <>visa</>
-  }
-  
-  export default Visa
+  return <Flights />
+}
+
+export default Visa

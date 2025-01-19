@@ -1,5 +1,8 @@
+
+import Hotels from 'src/views/pages/hotels/Hotels'
+
 const Medical = () => {
-    return <>medical</>
-  }
-  
-  export default Medical
+  return <Hotels />
+}
+
+export default Medical
