@@ -51,6 +51,7 @@ const AuthProvider = ({ children }: Props) => {
           .then(async response => {
             setLoading(false)
             setUser({ ...response.data.userData })
+            router.push('/Activities')
           })
           .catch(() => {
             localStorage.removeItem('userData')
